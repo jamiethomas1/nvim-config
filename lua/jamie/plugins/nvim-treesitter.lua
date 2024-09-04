@@ -12,7 +12,7 @@ return {
       ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "html", "css", "rust", "cpp", "php", "yaml", "toml", "markdown", "haskell", "python", "bash", "dockerfile", "fish", "glsl", "hlsl", "json", "scss", "sql", "xml", "ini", "typescript", "tsx" },
       sync_install = false,
       highlight = { enable = true },
-      indent = { enable = true },
+      indent = { enable = false },
       autotag = { enable = true },
       textobjects = {
         lsp_interop = {
