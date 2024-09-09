@@ -26,7 +26,6 @@ return {
       ensure_installed = {
         "html",
         "cssls",
-        "tsserver",
         "tailwindcss",
         "lua_ls",
         "emmet_ls",
