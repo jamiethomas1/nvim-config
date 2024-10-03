@@ -14,7 +14,7 @@ return {
       highlight = {
         enable = true,
       },
-      indent = { enable = true },
+      indent = { enable = false },
       autotag = { enable = true },
       textobjects = {
         lsp_interop = {
