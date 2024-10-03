@@ -9,10 +9,12 @@ return {
     require 'nvim-treesitter.install'.prefer_git = false
 
     configs.setup({
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "html", "css", "rust", "cpp", "php", "yaml", "toml", "markdown", "haskell", "python", "bash", "dockerfile", "fish", "glsl", "hlsl", "json", "scss", "sql", "xml", "ini", "typescript", "tsx" },
+      ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "html", "css", "rust", "cpp", "styled", "php", "yaml", "toml", "markdown", "haskell", "python", "bash", "dockerfile", "fish", "glsl", "hlsl", "json", "scss", "sql", "xml", "ini", "typescript", "tsx" },
       sync_install = false,
-      highlight = { enable = true },
-      indent = { enable = false },
+      highlight = {
+        enable = true,
+      },
+      indent = { enable = true },
       autotag = { enable = true },
       textobjects = {
         lsp_interop = {

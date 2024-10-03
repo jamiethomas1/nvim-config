@@ -26,6 +26,7 @@ return {
       ensure_installed = {
         "html",
         "cssls",
+        "stylelint_lsp",
         "tailwindcss",
         "lua_ls",
         "emmet_ls",
@@ -43,7 +44,8 @@ return {
         "rust_analyzer",
         "sqlls",
         "lemminx",
-        "yamlls"
+        "yamlls",
+        "ts_ls"
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed

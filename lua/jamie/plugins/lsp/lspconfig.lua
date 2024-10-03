@@ -81,6 +81,59 @@ return {
       on_attach = on_attach
     })
 
+    lspconfig["stylelint_lsp"].setup({
+      filetypes = { "css", "scss" },
+      root_dir = lspconfig.util.root_pattern("package.json", ".git"),
+      settings = {
+        stylelintplus = {
+          validateOnSave = true,
+          config = {
+            extends = {
+              "stylelint-config-standard",
+              "stylelint-config-recommended",
+              "stylelint-a11y/recommended"
+            },
+            rules = {
+              ["color-hex-case"] = "lower",  -- Hex colors must be lowercase
+              ["color-no-invalid-hex"] = true,  -- Disallow invalid hex colors
+              ["color-function-notation"] = "legacy",  -- Allow commas in colour functions
+              ["custom-property-empty-line-before"] = { "never", { ["ignore"] = "after-custom-property" }}, -- Allow line breaks between custom properties
+              ["declaration-block-no-duplicate-properties"] = true,  -- No duplicate properties
+              ["declaration-no-important"] = true,  -- Disallow `!important` usage
+              ["property-no-vendor-prefix"] = true,  -- Disallow vendor prefixes (handled by Autoprefixer)
+              ["value-no-vendor-prefix"] = true,  -- Disallow vendor-prefixed values (use Autoprefixer)
+              ["selector-class-pattern"] = false, -- Disable standard regex checking for class names
+              ["selector-max-id"] = 0,  -- Disallow ID selectors
+              ["selector-max-class"] = 3,  -- Limit class selector complexity
+              ["selector-no-qualifying-type"] = true,  -- Disallow type selectors with classes
+              ["function-no-unknown"] = true,  -- Disallow unknown CSS functions
+              ["font-family-no-missing-generic-family-keyword"] = true,  -- Ensure fonts have fallbacks
+              ["max-nesting-depth"] = 2,  -- Limit CSS nesting depth for better maintainability
+              ["declaration-block-no-shorthand-property-overrides"] = true,  -- Prevent shorthand overwrites
+              ["shorthand-property-no-redundant-values"] = true,  -- Avoid redundant shorthand values
+              ["media-feature-name-no-unknown"] = true,  -- Disallow unknown media features
+              ["media-feature-range-notation"] = "prefix", -- Use legacy media query range notation
+              ["no-unknown-animations"] = true,  -- Disallow undefined animations
+              ["selector-no-vendor-prefix"] = true,  -- Disallow vendor prefixes for selectors
+
+              -- Compatibility: Allow modern CSS but encourage legacy fallbacks
+              ["at-rule-no-vendor-prefix"] = true,  -- Disallow vendor prefixes for at-rules
+              ["declaration-no-longhand"] = nil,  -- Allow longhand fallbacks where needed
+              ["no-descending-specificity"] = true,  -- Prevent selectors that could cause specificity issues
+
+              -- Accessibility settings
+              ["a11y/media-prefers-reduced-motion"] = true,  -- Respect reduced motion setting
+              ["a11y/media-prefers-color-scheme"] = false,  -- Respect color scheme preferences
+              ["a11y/no-outline-none"] = true,  -- Prevent removing focus outlines
+              ["a11y/font-size-is-readable"] = true,  -- Ensure font sizes are readable
+              ["a11y/line-height-is-vertical-rhythmed"] = false,  -- Ensure line heights are readable
+            }
+          }
+        }
+      },
+      on_attach = on_attach
+    })
+
     -- configure tailwindcss server
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
@@ -199,6 +252,13 @@ return {
     -- configure yamlls server
     lspconfig["yamlls"].setup({
       capabilities = capabilities,
+      on_attach = on_attach
+    })
+
+    -- configure ts_ls server
+    lspconfig["ts_ls"].setup({
+      capabilities = capabilities,
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
       on_attach = on_attach
     })
 
