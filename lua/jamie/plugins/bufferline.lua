@@ -5,7 +5,12 @@ return {
   opts = {
     options = {
       mode = "tabs",
-      separator_style = "slant",
+      separator_style = "thin",
+    },
+    highlights = {
+      buffer_selected = {
+        italic = false,
+      }
     }
   }
 }

@@ -201,11 +201,11 @@ return {
       on_attach = on_attach
     })
 
-    -- configure eslint server
-    lspconfig["eslint"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
+    -- -- configure eslint server
+    -- lspconfig["eslint"].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach
+    -- })
 
     -- configure glsl_analyzer server
     lspconfig["glsl_analyzer"].setup({

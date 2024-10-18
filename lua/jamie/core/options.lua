@@ -5,8 +5,8 @@ opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
 -- tabs & indentation
-opt.tabstop = 4 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 4 -- 2 spaces for indent width
+opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
@@ -24,6 +24,7 @@ opt.cursorline = true -- highlight the current cursor line
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.showmode = false
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
@@ -35,22 +36,22 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "html",
-    command = "setlocal shiftwidth=2 tabstop=2"
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "json",
-    command = "setlocal shiftwidth=2 tabstop=2"
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "lua",
-    command = "setlocal shiftwidth=2 tabstop=2"
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "css",
-    command = "setlocal shiftwidth=2 tabstop=2"
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "html",
+--     command = "setlocal shiftwidth=2 tabstop=2"
+-- })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "json",
+--     command = "setlocal shiftwidth=2 tabstop=2"
+-- })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "lua",
+--     command = "setlocal shiftwidth=2 tabstop=2"
+-- })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "css",
+--     command = "setlocal shiftwidth=2 tabstop=2"
+-- })
