@@ -35,23 +35,3 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
-
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "html",
---     command = "setlocal shiftwidth=2 tabstop=2"
--- })
---
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "json",
---     command = "setlocal shiftwidth=2 tabstop=2"
--- })
---
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "lua",
---     command = "setlocal shiftwidth=2 tabstop=2"
--- })
---
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = "css",
---     command = "setlocal shiftwidth=2 tabstop=2"
--- })
