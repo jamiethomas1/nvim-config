@@ -1,6 +1,5 @@
 return {
-	"christoomey/vim-tmux-navigator",
-	"voldikss/vim-floaterm",
-	"windwp/nvim-ts-autotag",
-    "tpope/vim-fugitive",
+  "christoomey/vim-tmux-navigator",
+  "voldikss/vim-floaterm",
+  "tpope/vim-fugitive",
 }

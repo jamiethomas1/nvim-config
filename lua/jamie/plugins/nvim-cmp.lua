@@ -1,34 +1,32 @@
 return {
-    {
+  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-buffer", -- source for text in buffer
       "hrsh7th/cmp-path", -- source for file system paths
-      "L3MON4D3/LuaSnip", -- snippet engine
+      "L3M0N4D3/LuaSnip", -- snippet engine
       "saadparwaiz1/cmp_luasnip", -- for autocompletion
       "rafamadriz/friendly-snippets", -- useful snippets
       "onsails/lspkind.nvim", -- vs-code like pictograms
     },
-    config = function()
+    config = function ()
       local cmp = require("cmp")
 
       local luasnip = require("luasnip")
-      luasnip.filetype_extend("javascriptreact", { "html" })
+      luasnip.filetype_extend("javascriptreact", { "html" }) -- display html snippets in jsx files
 
       local lspkind = require("lspkind")
-
-      -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
       require("luasnip.loaders.from_vscode").lazy_load()
 
       cmp.setup({
         completion = {
-          completeopt = "menu,menuone,preview,noselect",
+          completeopt = "menu,menuone,preview,noselect", -- Display completion menu, show menu even for only one choice, show docs for selected option, don't automatically select
         },
-        snippet = { -- configure how nvim-cmp interacts with snippet engine
+        snippet = {
           expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
+            luasnip.lsp_expand(args.body) -- When a snippet is selected, send it to luasnip for expansion
+          end
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
@@ -39,34 +37,24 @@ return {
           ["<C-e>"] = cmp.mapping.abort(), -- close completion window
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
-        -- sources for autocompletion
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
-          { name = "luasnip" }, -- snippets
-          { name = "buffer" }, -- text within current buffer
-          { name = "path" }, -- file system paths
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "path" },
         }),
-        -- configure lspkind for vs-code like pictograms in completion menu
         formatting = {
-          format = function(entry, item)
-            local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
-            item = lspkind.cmp_format({
-              maxwidth = 50,
-              ellipsis_char = "...",
-            })(entry, item)
-            if color_item.abbr_hl_group then
-              item.kind_hl_group = color_item.abbr_hl_group
-              item.kind = color_item.abbr
-            end
-            return item
-          end
-        },
+          format = lspkind.cmp_format({
+            maxwidth = 50,
+            ellipsis_char = "...",
+          })
+        }
       })
-    end,
+    end
   },
   {
-    "L3MON4D3/LuaSnip",
+    "L3M0N4D3/LuaSnip",
     version = "v2.*",
-    build = "make install_jsregexp"
+    build = "make install_jsregexp",
   }
 }

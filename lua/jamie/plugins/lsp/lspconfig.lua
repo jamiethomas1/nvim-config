@@ -3,13 +3,10 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    { "antosha417/nvim-lsp-file-operations", config = true },
+    { "antosha417/nvim-lsp-file-operations", config = true }
   },
-  config = function()
-    -- import lspconfig plugin
+  config = function ()
     local lspconfig = require("lspconfig")
-
-    -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local keymap = vim.keymap -- for conciseness
@@ -59,16 +56,10 @@ return {
       keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
     end
 
-    -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = cmp_nvim_lsp.default_capabilities() -- shorthand for enabling autocompletion - assign to each lsp server config
 
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-
+    -- local signs = {}
+    
     -- configure html server
     lspconfig["html"].setup({
       capabilities = capabilities,
@@ -78,59 +69,6 @@ return {
     -- configure cssls server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    lspconfig["stylelint_lsp"].setup({
-      filetypes = { "css", "scss" },
-      root_dir = lspconfig.util.root_pattern("package.json", ".git"),
-      settings = {
-        stylelintplus = {
-          validateOnSave = true,
-          config = {
-            extends = {
-              "stylelint-config-standard",
-              "stylelint-config-recommended",
-              "stylelint-a11y/recommended"
-            },
-            rules = {
-              ["color-hex-case"] = "lower",  -- Hex colors must be lowercase
-              ["color-no-invalid-hex"] = true,  -- Disallow invalid hex colors
-              ["color-function-notation"] = "legacy",  -- Allow commas in colour functions
-              ["custom-property-empty-line-before"] = { "never", { ["ignore"] = "after-custom-property" }}, -- Allow line breaks between custom properties
-              ["declaration-block-no-duplicate-properties"] = true,  -- No duplicate properties
-              ["declaration-no-important"] = true,  -- Disallow `!important` usage
-              ["property-no-vendor-prefix"] = true,  -- Disallow vendor prefixes (handled by Autoprefixer)
-              ["value-no-vendor-prefix"] = true,  -- Disallow vendor-prefixed values (use Autoprefixer)
-              ["selector-class-pattern"] = false, -- Disable standard regex checking for class names
-              ["selector-max-id"] = 0,  -- Disallow ID selectors
-              ["selector-max-class"] = 3,  -- Limit class selector complexity
-              ["selector-no-qualifying-type"] = true,  -- Disallow type selectors with classes
-              ["function-no-unknown"] = true,  -- Disallow unknown CSS functions
-              ["font-family-no-missing-generic-family-keyword"] = true,  -- Ensure fonts have fallbacks
-              ["max-nesting-depth"] = 2,  -- Limit CSS nesting depth for better maintainability
-              ["declaration-block-no-shorthand-property-overrides"] = true,  -- Prevent shorthand overwrites
-              ["shorthand-property-no-redundant-values"] = true,  -- Avoid redundant shorthand values
-              ["media-feature-name-no-unknown"] = true,  -- Disallow unknown media features
-              ["media-feature-range-notation"] = "prefix", -- Use legacy media query range notation
-              ["no-unknown-animations"] = true,  -- Disallow undefined animations
-              ["selector-no-vendor-prefix"] = true,  -- Disallow vendor prefixes for selectors
-
-              -- Compatibility: Allow modern CSS but encourage legacy fallbacks
-              ["at-rule-no-vendor-prefix"] = true,  -- Disallow vendor prefixes for at-rules
-              ["declaration-no-longhand"] = nil,  -- Allow longhand fallbacks where needed
-              ["no-descending-specificity"] = true,  -- Prevent selectors that could cause specificity issues
-
-              -- Accessibility settings
-              ["a11y/media-prefers-reduced-motion"] = true,  -- Respect reduced motion setting
-              ["a11y/media-prefers-color-scheme"] = false,  -- Respect color scheme preferences
-              ["a11y/no-outline-none"] = true,  -- Prevent removing focus outlines
-              ["a11y/font-size-is-readable"] = true,  -- Ensure font sizes are readable
-              ["a11y/line-height-is-vertical-rhythmed"] = false,  -- Ensure line heights are readable
-            }
-          }
-        }
-      },
       on_attach = on_attach
     })
 
@@ -261,6 +199,5 @@ return {
       filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
       on_attach = on_attach
     })
-
   end
 }

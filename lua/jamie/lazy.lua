@@ -15,9 +15,6 @@ require("lazy").setup({
   { import = "jamie.plugins" },
   { import = "jamie.plugins.lsp" }
 }, {
-  install = {
-    colorscheme = { "gruvbox" },
-  },
   checker = {
     enabled = true,
     notify = false,

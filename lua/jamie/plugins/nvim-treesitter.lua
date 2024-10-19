@@ -1,32 +1,22 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects"
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "windwp/nvim-ts-autotag",
   },
   build = ":TSUpdate",
   config = function ()
+    require("nvim-ts-autotag").setup()
     local configs = require("nvim-treesitter.configs")
-    require 'nvim-treesitter.install'.prefer_git = false
 
     configs.setup({
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "html", "css", "rust", "cpp", "styled", "php", "yaml", "toml", "markdown", "haskell", "python", "bash", "dockerfile", "fish", "glsl", "hlsl", "json", "scss", "sql", "xml", "ini", "typescript", "tsx" },
+      ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript", "html", "css", "tsx", "markdown", "python", "bash", "dockerfile", "fish", "json", "scss" },
       sync_install = false,
-      highlight = {
-        enable = true,
+      highlight = { enable = true },
+      indent = { 
+        enable = true, 
+        disable = { "html" }
       },
-      indent = { enable = false },
-      autotag = { enable = true },
-      textobjects = {
-        lsp_interop = {
-          enable = true,
-          border = 'none',
-          floating_preview_opts = {},
-          peek_definition_code = {
-            ["<leader>df"] = "@function.outer",
-            ["<leader>dF"] = "@class.outer",
-          }
-        }
-      }
     })
   end
 }
