@@ -1,5 +1,8 @@
+local utils = require("utils")
+
 return {
     'nvim-telescope/telescope.nvim', 
+    enabled = not utils.is_vscode,
     branch = '0.1.x',
     dependencies = {
         'nvim-lua/plenary.nvim',

@@ -1,5 +1,8 @@
+local utils = require("utils")
+
 return {
   "williamboman/mason.nvim",
+  enabled = not utils.is_vscode,
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
   },

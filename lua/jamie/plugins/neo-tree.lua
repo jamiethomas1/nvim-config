@@ -1,5 +1,8 @@
+local utils = require("utils")
+
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  enabled = not utils.is_vscode,
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",

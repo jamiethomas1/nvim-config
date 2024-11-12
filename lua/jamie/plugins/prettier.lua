@@ -1,5 +1,8 @@
+local utils = require("utils")
+
 return {
   "MunifTanjim/prettier.nvim",
+  enabled = not utils.is_vscode,
   config = function()
     require("prettier").setup({
       print_width = 80,

@@ -1,6 +1,9 @@
+local utils = require("utils")
+
 return {
   {
     "hrsh7th/nvim-cmp",
+    enabled = not utils.is_vscode,
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-buffer", -- source for text in buffer

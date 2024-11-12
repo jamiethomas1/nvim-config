@@ -1,3 +1,11 @@
+local utils = require("utils")
+
+if utils.is_vscode then
+  return {
+    "matze/vim-move",
+  }
+end
+
 return {
   "christoomey/vim-tmux-navigator",
   "voldikss/vim-floaterm",

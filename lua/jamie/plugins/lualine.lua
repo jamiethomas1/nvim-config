@@ -1,5 +1,8 @@
+local utils = require("utils")
+
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = not utils.is_vscode,
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function ()
     local lualine = require("lualine")

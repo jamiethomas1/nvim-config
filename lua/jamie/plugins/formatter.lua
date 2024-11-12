@@ -1,5 +1,8 @@
+local utils = require("utils")
+
 return {
   "mhartington/formatter.nvim",
+  enabled = not utils.is_vscode,
   config = function()
     require("formatter").setup({
       logging = false,

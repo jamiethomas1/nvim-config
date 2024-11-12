@@ -1,5 +1,8 @@
+local utils = require("utils")
+
 return {
   "neovim/nvim-lspconfig",
+  enabled = not utils.is_vscode,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
