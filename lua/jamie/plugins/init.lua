@@ -6,4 +6,5 @@ return {
   "github/copilot.vim",
   "matze/vim-move",
   "nvim-treesitter/nvim-treesitter-context",
+  "xiyaowong/transparent.nvim",
 }
