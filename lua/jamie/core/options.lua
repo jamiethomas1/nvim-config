@@ -20,6 +20,9 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
 
+-- cursor block
+opt.guicursor = "n-v-i-c:block-Cursor"
+
 -- appearance
 opt.termguicolors = true
 opt.background = "dark"
@@ -35,3 +38,6 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- split windows
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
+
+-- mouse
+opt.mouse = ''
