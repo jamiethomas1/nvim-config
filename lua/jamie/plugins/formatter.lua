@@ -2,10 +2,32 @@ local utils = require("utils")
 
 vim.g.FormatterEnabled = true
 
+local function load_formatter_state()
+  local state_file = vim.fn.stdpath("data") .. "/formatter_enabled"
+  local file = io.open(state_file, "r")
+  if file then
+    local state = file:read("*l") -- Read the first line
+    file:close()
+    vim.g.FormatterEnabled = state == "true"
+  else
+    vim.g.FormatterEnabled = true -- Default to enabled if no file exists
+  end
+end
+
+load_formatter_state()
+
 local function toggle_formatter()
   vim.g.FormatterEnabled = not vim.g.FormatterEnabled
   local status = vim.g.FormatterEnabled and "Formatting Enabled" or "Formatting Disabled"
   vim.notify(status, vim.log.levels.INFO)
+
+  -- Save the state to a file
+  local state_file = vim.fn.stdpath("data") .. "/formatter_enabled"
+  local file = io.open(state_file, "w")
+  if file then
+    file:write(tostring(vim.g.FormatterEnabled)) -- Save as "true" or "false"
+    file:close()
+  end
 end
 
 _G.toggle_formatter = toggle_formatter
