@@ -1,5 +1,15 @@
 local utils = require("utils")
 
+vim.g.FormatterEnabled = true
+
+local function toggle_formatter()
+  vim.g.FormatterEnabled = not vim.g.FormatterEnabled
+  local status = vim.g.FormatterEnabled and "Formatting Enabled" or "Formatting Disabled"
+  vim.notify(status, vim.log.levels.INFO)
+end
+
+_G.toggle_formatter = toggle_formatter
+
 return {
   "mhartington/formatter.nvim",
   enabled = not utils.is_vscode,
@@ -87,8 +97,12 @@ return {
     local autocmd = vim.api.nvim_create_autocmd
     augroup("__formatter__", { clear = true })
     autocmd("BufWritePost", {
-            group = "__formatter__",
-            command = ":FormatWrite",
+      group = "__formatter__",
+      callback = function()
+        if vim.g.FormatterEnabled then
+          vim.cmd("FormatWrite")
+        end
+      end,
     })
   end,
 }
