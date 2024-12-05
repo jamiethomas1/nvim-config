@@ -16,6 +16,7 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decremen
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>sf", "<C-w>|", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>ss", "<C-w>x", { desc = "Swap window with next" }) -- swap window with next
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
@@ -26,11 +27,14 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
-keymap.set("n", "<leader>tp", ":lua toggle_formatter()<CR>", { noremap = true, silent = true, desc = "Toggle formatter" })
+keymap.set("n", "<leader>gf", ":lua toggle_formatter()<CR>", { noremap = true, silent = true, desc = "Toggle formatter" })
 
 keymap.set("n", "<F12>", ":FloatermToggle<CR>", { desc = "Open floating terminal" })
 keymap.set("t", "<F12>", "<C-\\><C-n>:FloatermToggle<CR>", { desc = "Close floating terminal" })
 
 -- navigation
-keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll half page down & center cursor" })
-keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll half page up & center cursor" })
+keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = "Scroll half page down & center cursor" })
+keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true, desc = "Scroll half page up & center cursor" })
+
+-- git
+keymap.set("n", "<leader>gg", ":Git<CR>", { noremap = true, silent = true, desc = "Open Fugitive" })
