@@ -61,146 +61,135 @@ return {
 
     local capabilities = cmp_nvim_lsp.default_capabilities() -- shorthand for enabling autocompletion - assign to each lsp server config
 
-    -- local signs = {}
-    
-    -- configure html server
-    lspconfig["html"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure cssls server
-    lspconfig["cssls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure tailwindcss server
-    lspconfig["tailwindcss"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure lua_ls server
-    lspconfig["lua_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" }
-          },
-          workspace = {
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true
+    local servers = {
+      html = {
+        capabilities = capabilities,
+        filetypes = { "html" },
+        on_attach = on_attach
+      },
+      cssls = {
+        capabilities = capabilities,
+        filetypes = { "css", "scss", "less" },
+        on_attach = on_attach
+      },
+      tailwindcss = {
+        capabilities = capabilities,
+        filetypes = { "html", "css", "scss", "less", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+        on_attach = on_attach
+      },
+      lua_ls = {
+        capabilities = capabilities,
+        filetypes = { "lua" },
+        on_attach = on_attach,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" }
+            },
+            workspace = {
+              library = {
+                [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                [vim.fn.stdpath("config") .. "/lua"] = true
+              }
             }
           }
         }
+      },
+      emmet_ls = {
+        capabilities = capabilities,
+        filetypes = { "html", "css", "scss", "less", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+        on_attach = on_attach,
+      },
+      pyright = {
+        capabilities = capabilities,
+        filetypes = { "python" },
+        on_attach = on_attach
+      },
+      bashls = {
+        capabilities = capabilities,
+        filetypes = { "sh", "bash" },
+        on_attach = on_attach
+      },
+      clangd = {
+        capabilities = capabilities,
+        filetypes = { "c", "cpp" },
+        on_attach = on_attach
+      },
+      cmake = {
+        capabilities = capabilities,
+        filetypes = { "cmake" },
+        on_attach = on_attach
+      },
+      dockerls = {
+        capabilities = capabilities,
+        filetypes = { "dockerfile" },
+        on_attach = on_attach
+      },
+      docker_compose_language_service = {
+        capabilities = capabilities,
+        filetypes = { "docker-compose" },
+        on_attach = on_attach
+      },
+      -- eslint = {
+      --  capabilities = capabilities,
+      --  on_attach = on_attach
+      --  },
+      glsl_analyzer = {
+        capabilities = capabilities,
+        filetypes = { "glsl" },
+        on_attach = on_attach
+      },
+      jsonls = {
+        capabilities = capabilities,
+        filetypes = { "json" },
+        on_attach = on_attach
+      },
+      marksman = {
+        capabilities = capabilities,
+        filetypes = { "markdown" },
+        on_attach = on_attach
+      },
+      intelephense = {
+        capabilities = capabilities,
+        filetypes = { "php" },
+        on_attach = on_attach
+      },
+      rust_analyzer = {
+        capabilities = capabilities,
+        filetypes = { "rust" },
+        on_attach = on_attach
+      },
+      sqlls = {
+        capabilities = capabilities,
+        filetypes = { "sql" },
+        on_attach = on_attach
+      },
+      lemminx = {
+        capabilities = capabilities,
+        filetypes = { "xml" },
+        on_attach = on_attach
+      },
+      yamlls = {
+        capabilities = capabilities,
+        filetypes = { "yaml", "yml" },
+        on_attach = on_attach
+      },
+      ts_ls = {
+        capabilities = capabilities,
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+        on_attach = on_attach
       }
-    })
+    }
 
-    -- configure emmet_ls server
-    lspconfig["emmet_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure pyright server
-    lspconfig["pyright"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure bashls server
-    lspconfig["bashls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure clangd server
-    lspconfig["clangd"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure cmake server
-    lspconfig["cmake"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure dockerls server
-    lspconfig["dockerls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure docker_compose_language_service server
-    lspconfig["docker_compose_language_service"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- -- configure eslint server
-    -- lspconfig["eslint"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach
-    -- })
-
-    -- configure glsl_analyzer server
-    lspconfig["glsl_analyzer"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure jsonls server
-    lspconfig["jsonls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure marksman server
-    lspconfig["marksman"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure intelephense server
-    lspconfig["intelephense"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure rust_analyzer server
-    lspconfig["rust_analyzer"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure sqlls server
-    lspconfig["sqlls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure lemminx server
-    lspconfig["lemminx"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure yamlls server
-    lspconfig["yamlls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach
-    })
-
-    -- configure ts_ls server
-    lspconfig["ts_ls"].setup({
-      capabilities = capabilities,
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-      on_attach = on_attach
-    })
+    for server, config in pairs(servers) do
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = table.concat(config.filetypes, ","),
+        callback = function()
+          if not lspconfig[server].manager then
+            lspconfig[server].setup(config)
+          end
+        end
+      })
+    end
   end
 }
