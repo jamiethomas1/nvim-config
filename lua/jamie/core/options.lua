@@ -41,3 +41,13 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- mouse
 opt.mouse = ''
+
+
+-- custom config
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight yanked text",
+  group = vim.api.nvim_create_augroup('highlight_yank', {clear = true}),
+  callback = function()
+    vim.highlight.on_yank()
+  end
+})
