@@ -6,6 +6,11 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 -- General Keymaps -------------------
 
+-- run lua code
+keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Source current file" })
+keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "Run current line" })
+keymap.set("v", "<leader>x", ":lua<CR>", { desc = "Run current selection" })
+
 -- lazy.nvim
 keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy" }) -- open lazy
 
