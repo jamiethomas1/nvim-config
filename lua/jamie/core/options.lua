@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("TermOpen", {
-  desc = "Highlight yanked text",
+  desc = "Disable line numbers in terminal",
   group = vim.api.nvim_create_augroup('term_open', {clear = true}),
   callback = function()
     vim.opt.number = false
