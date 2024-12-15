@@ -5,6 +5,7 @@
    callback = function()
      local opts = { buffer = true, silent = true }
      vim.keymap.set("n", "<Esc>", ":q<CR>", opts)
+     vim.keymap.set("n", "q", ":q<CR>", opts)
    end,
  })
 
