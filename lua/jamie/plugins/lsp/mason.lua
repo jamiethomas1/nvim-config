@@ -43,7 +43,8 @@ return {
         "sqlls",
         "lemminx",
         "yamlls",
-        "ts_ls"
+        "ts_ls",
+        "prismals"
       },
       automatic_installation = true,
     })

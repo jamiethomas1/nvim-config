@@ -176,7 +176,12 @@ return {
         capabilities = capabilities,
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
         on_attach = on_attach
-      }
+      },
+      prismals = {
+        capabilities = capabilities,
+        filetypes = { "prisma" },
+        on_attach = on_attach
+      },
     }
 
     for server, config in pairs(servers) do
