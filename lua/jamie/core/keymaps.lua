@@ -4,6 +4,11 @@ vim.g.maplocalleader = "\\" -- Same for `maplocalleader`
 ---------------------
 -- General Keymaps -------------------
 
+vim.keymap.set("n", "<leader>q", ":quit<CR>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>Q", ":qall<CR>", { desc = "Close all buffers" })
+vim.keymap.set("n", "<leader>w", ":write<CR>", { desc = "Write buffer" })
+vim.keymap.set("n", "<leader>W", ":wall<CR>", { desc = "Write all buffers" })
+
 -- run lua code
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Source current file" })
 vim.keymap.set("n", "<leader>x", ":.lua<CR>", { desc = "Run current line" })
