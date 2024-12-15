@@ -1,5 +1,9 @@
 local utils = require("utils")
 
+-- Previous colorschemes: 
+-- "rebelot/kanagawa.nvim",
+-- "catppuccin/nvim",
+
 return {
   "catppuccin/nvim",
   enabled = not utils.is_vscode,
