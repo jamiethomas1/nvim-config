@@ -33,8 +33,14 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 keymap.set("n", "<leader>gf", ":lua toggle_formatter()<CR>", { noremap = true, silent = true, desc = "Toggle formatter" })
 
-keymap.set("n", "<F12>", ":FloatermToggle<CR>", { desc = "Open floating terminal" })
-keymap.set("t", "<F12>", "<C-\\><C-n>:FloatermToggle<CR>", { desc = "Close floating terminal" })
+-- terminal
+keymap.set("n", "<leader>st", function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 15)
+end, { noremap = true, silent = true, desc = "Open small terminal" })
+keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
 
 -- navigation
 keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = "Scroll half page down & center cursor" })
