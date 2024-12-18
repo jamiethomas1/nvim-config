@@ -174,7 +174,7 @@ return {
       },
       ts_ls = {
         capabilities = capabilities,
-        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
         on_attach = on_attach
       },
       prismals = {
