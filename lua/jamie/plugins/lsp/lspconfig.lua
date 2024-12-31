@@ -128,10 +128,11 @@ return {
         filetypes = { "docker-compose" },
         on_attach = on_attach
       },
-      -- eslint = {
-      --  capabilities = capabilities,
-      --  on_attach = on_attach
-      --  },
+      eslint = {
+       capabilities = capabilities,
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+       on_attach = on_attach
+       },
       glsl_analyzer = {
         capabilities = capabilities,
         filetypes = { "glsl" },
