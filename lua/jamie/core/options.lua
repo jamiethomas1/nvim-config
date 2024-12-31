@@ -58,3 +58,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.relativenumber = false
   end
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Enable word wrap for markdown",
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+  end
+})
