@@ -44,7 +44,8 @@ return {
         "lemminx",
         "yamlls",
         "ts_ls",
-        "prismals"
+        "prismals",
+        "zls",
       },
       automatic_installation = true,
     })

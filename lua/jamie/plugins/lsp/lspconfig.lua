@@ -183,6 +183,11 @@ return {
         filetypes = { "prisma" },
         on_attach = on_attach
       },
+      zls = {
+        capabilities = capabilities,
+        filetypes = { "zig" },
+        on_attach = on_attach
+      },
     }
 
     for server, config in pairs(servers) do
