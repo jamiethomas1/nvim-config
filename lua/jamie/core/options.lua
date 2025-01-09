@@ -16,7 +16,7 @@ vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- cursor line
-vim.opt.cursorline = true -- highlight the current cursor line
+vim.opt.cursorline = false -- highlight the current cursor line
 
 -- cursor block
 vim.opt.guicursor = "n-v-i-c:block-Cursor"
@@ -40,6 +40,9 @@ vim.opt.splitbelow = true -- split horizontal window to the bottom
 -- mouse
 vim.opt.mouse = ''
 
+-- session
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 
 -- custom config
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -56,14 +59,5 @@ vim.api.nvim_create_autocmd("TermOpen", {
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
-  end
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  desc = "Enable word wrap for markdown",
-  pattern = "markdown",
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.linebreak = true
   end
 })
