@@ -1,16 +1,10 @@
 local utils = require("utils")
 
-if utils.is_vscode then
+if not utils.is_vscode then
   return {
-    "matze/vim-move",
+    "christoomey/vim-tmux-navigator",
+    "bullets-vim/bullets.vim",
+    "github/copilot.vim",
+    "nvim-treesitter/nvim-treesitter-context",
   }
 end
-
-return {
-  "christoomey/vim-tmux-navigator",
-  -- "voldikss/vim-floaterm",
-  "bullets-vim/bullets.vim",
-  "github/copilot.vim",
-  "matze/vim-move",
-  "nvim-treesitter/nvim-treesitter-context",
-}
