@@ -23,6 +23,8 @@ return {
         TelescopePromptNormal = { bg = "base" },
         TelescopeResultsNormal = { fg = "subtle", bg = "base" },
         TelescopeSelection = { fg = "text", bg = "base" },
+        NormalFloat = { bg = "base" },
+        FloatBorder = { fg = "highlight_high", bg = "none" },
       }
     })
     vim.cmd([[colorscheme rose-pine-moon]])
