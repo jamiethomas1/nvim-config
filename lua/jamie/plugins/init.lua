@@ -6,5 +6,6 @@ if not utils.is_vscode then
     "bullets-vim/bullets.vim",
     "github/copilot.vim",
     "nvim-treesitter/nvim-treesitter-context",
+    "JoosepAlviste/nvim-ts-context-commentstring",
   }
 end
