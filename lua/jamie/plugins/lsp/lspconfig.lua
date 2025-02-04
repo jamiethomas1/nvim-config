@@ -191,14 +191,7 @@ return {
     }
 
     for server, config in pairs(servers) do
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = table.concat(config.filetypes, ","),
-        callback = function()
-          if not lspconfig[server].manager then
-            lspconfig[server].setup(config)
-          end
-        end
-      })
+      lspconfig[server].setup(config)
     end
   end
 }
