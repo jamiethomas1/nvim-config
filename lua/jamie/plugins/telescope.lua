@@ -11,7 +11,23 @@ return {
   },
   config = function()
     local telescope = require("telescope")
+    local telescope_builtin = require("telescope.builtin")
     local actions = require("telescope.actions")
+    local action_state = require("telescope.actions.state")
+
+    local show_hidden = false
+
+    local function toggle_hidden_files(prompt_bufnr)
+      local query = action_state.get_current_line()
+      show_hidden = not show_hidden
+      actions.close(prompt_bufnr)
+
+      telescope_builtin.find_files({
+        hidden = show_hidden,
+        no_ignore = show_hidden,
+        default_text = query
+      })
+    end
 
     telescope.setup({
       defaults = {
@@ -25,6 +41,16 @@ return {
       },
       extensions = {
         fzf = {}
+      },
+      pickers = {
+        find_files = {
+          hidden = false,
+          attach_mappings = function(_, map)
+            map("i", "<C-h>", toggle_hidden_files)
+            map("n", "<C-h>", toggle_hidden_files)
+            return true
+          end
+        },
       }
     })
 
