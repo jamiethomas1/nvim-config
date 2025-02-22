@@ -30,6 +30,7 @@ return {
         "prisma",
         "yaml",
         "zig",
+        "go",
       },
       sync_install = false,
       highlight = { enable = true },

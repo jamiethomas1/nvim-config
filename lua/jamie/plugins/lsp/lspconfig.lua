@@ -138,6 +138,11 @@ return {
         filetypes = { "glsl" },
         on_attach = on_attach
       },
+      gopls = {
+        capabilities = capabilities,
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        on_attach = on_attach
+      },
       jsonls = {
         capabilities = capabilities,
         filetypes = { "json" },

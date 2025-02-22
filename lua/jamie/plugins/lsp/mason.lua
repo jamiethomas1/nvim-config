@@ -36,6 +36,7 @@ return {
         "docker_compose_language_service",
         "eslint",
         "glsl_analyzer",
+        "gopls",
         "jsonls",
         "marksman",
         "intelephense",
