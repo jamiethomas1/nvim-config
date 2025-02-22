@@ -49,5 +49,6 @@ end
 
 vim.api.nvim_create_user_command('Floaterminal', toggle_terminal, {})
 vim.keymap.set({'n', 't'}, '<leader>tt', toggle_terminal, { noremap = true, silent = true, desc = 'Toggle floating terminal' })
+vim.keymap.set({'n', 't'}, '<F9>', toggle_terminal, { noremap = true, silent = true, desc = 'Toggle floating terminal' })
 
 return {}
