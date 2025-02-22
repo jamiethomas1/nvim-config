@@ -57,12 +57,15 @@ vim.keymap.set("n", "<leader>gg", ":Git<CR>", { noremap = true, silent = true, d
 -- oil
 vim.keymap.set("n", "<leader>-", ":Oil<CR>", { noremap = true, silent = true, desc = "Open Oil" })
 
--- from ThePrimeagen
+-- quickfix list
 vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")
 
+-- substitute word under cursor
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- retain position in paragraph after indenting
 vim.keymap.set("n", "=ap", "ma=ap'a")
 
+-- launch tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/bin/.local/scripts/tmux-sessionizer.sh<CR>")
