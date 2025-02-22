@@ -21,12 +21,12 @@ vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy" }) -- ope
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- window management
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-vim.keymap.set("n", "<leader>sf", "<C-w>|", { desc = "Fullscreen current split" }) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>ss", "<C-w>x", { desc = "Swap window with next" }) -- swap window with next
-vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+-- vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+-- vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+-- vim.keymap.set("n", "<leader>sf", "<C-w>|", { desc = "Fullscreen current split" }) -- make split windows equal width & height
+-- vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+-- vim.keymap.set("n", "<leader>ss", "<C-w>x", { desc = "Swap window with next" }) -- swap window with next
+-- vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
@@ -38,12 +38,13 @@ vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current bu
 vim.keymap.set("n", "<leader>gf", ":lua toggle_formatter()<CR>", { noremap = true, silent = true, desc = "Toggle formatter" })
 
 -- terminal
-vim.keymap.set("n", "<leader>st", function()
-  vim.cmd.vnew()
-  vim.cmd.term()
-  vim.cmd.wincmd("J")
-  vim.api.nvim_win_set_height(0, 15)
-end, { noremap = true, silent = true, desc = "Open small terminal" })
+-- vim.keymap.set("n", "<leader>st", function()
+--   vim.cmd.vnew()
+--   vim.cmd.term()
+--   vim.cmd.wincmd("J")
+--   vim.api.nvim_win_set_height(0, 15)
+-- end, { noremap = true, silent = true, desc = "Open small terminal" })
+
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
 
 -- navigation
@@ -55,3 +56,11 @@ vim.keymap.set("n", "<leader>gg", ":Git<CR>", { noremap = true, silent = true, d
 
 -- oil
 vim.keymap.set("n", "<leader>-", ":Oil<CR>", { noremap = true, silent = true, desc = "Open Oil" })
+
+-- from ThePrimeagen
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>zz")
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+vim.keymap.set("n", "=ap", "ma=ap'a")
