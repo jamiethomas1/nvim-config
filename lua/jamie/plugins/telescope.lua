@@ -17,6 +17,7 @@ return {
 
     local show_hidden = false
 
+    --- @param prompt_bufnr integer
     local function toggle_hidden_files(prompt_bufnr)
       local query = action_state.get_current_line()
       show_hidden = not show_hidden

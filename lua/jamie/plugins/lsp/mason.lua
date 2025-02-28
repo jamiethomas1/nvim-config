@@ -7,7 +7,13 @@ return {
     "williamboman/mason-lspconfig.nvim",
   },
   config = function ()
+
+    --- @class Mason
+    --- @field setup fun(opts?: table)
     local mason = require("mason")
+
+    --- @class MasonLspconfig
+    --- @field setup fun(opts?: table)
     local mason_lspconfig = require("mason-lspconfig")
 
     mason.setup({

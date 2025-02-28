@@ -9,7 +9,12 @@ return {
     { "antosha417/nvim-lsp-file-operations", config = true }
   },
   config = function ()
+
+    --- @type table
     local lspconfig = require("lspconfig")
+
+    --- @class Completions
+    --- @field default_capabilities fun()
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local opts = { noremap = true, silent = true }

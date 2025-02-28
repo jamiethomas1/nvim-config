@@ -5,6 +5,12 @@ local state = {
   }
 }
 
+--- @class Floaterminal.Config
+--- @field buf integer
+--- @field width? integer
+--- @field height? integer
+
+--- @param opts Floaterminal.Config
 local function create_floating_window(opts)
 	opts = opts or {}
 	local width = opts.width or math.floor(vim.o.columns * 0.8)
