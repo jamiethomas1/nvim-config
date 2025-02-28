@@ -23,6 +23,7 @@ return {
     mason_lspconfig.setup({
       ensure_installed = {
         "html",
+        "htmx",
         "cssls",
         "stylelint_lsp",
         "tailwindcss",

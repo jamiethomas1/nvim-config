@@ -65,6 +65,11 @@ return {
         filetypes = { "html" },
         on_attach = on_attach
       },
+      htmx = {
+        capabilities = capabilities,
+        filetypes = { "html" },
+        on_attach = on_attach
+      },
       cssls = {
         capabilities = capabilities,
         filetypes = { "css", "scss", "less" },
