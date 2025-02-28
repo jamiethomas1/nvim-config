@@ -13,8 +13,17 @@ return {
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local opts = { noremap = true, silent = true }
+
+    --- Called when an LSP attaches to a buffer.
+    --- @param client vim.lsp.Client The LSP client object
+    --- @param bufnr integer The buffer number where the LSP is attached
     local on_attach = function(client, bufnr)
       opts.buffer = bufnr
+
+      -- Disable ts_ls diagnostics but keep other LSP features
+      if client.name == "ts_ls" then
+        client.handlers["textDocument/publishDiagnostics"] = function() end
+      end
 
       -- set keybinds
       opts.desc = "Show LSP references"
