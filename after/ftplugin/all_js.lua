@@ -7,3 +7,10 @@ vim.keymap.set(
   "oconsole.log(\"\")<Esc>F\"i",
   { buffer = true }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>us",
+  "oconst [] = useState(null)<Esc>F]i",
+  { buffer = true }
+)
