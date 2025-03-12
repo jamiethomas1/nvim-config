@@ -26,9 +26,9 @@ return {
       opts.buffer = bufnr
 
       -- Disable ts_ls diagnostics but keep other LSP features
-      if client.name == "ts_ls" then
-        client.handlers["textDocument/publishDiagnostics"] = function() end
-      end
+      -- if client.name == "ts_ls" then
+      --   client.handlers["textDocument/publishDiagnostics"] = function() end
+      -- end
 
       -- set keybinds
       opts.desc = "Show LSP references"
@@ -114,7 +114,7 @@ return {
       },
       emmet_ls = {
         capabilities = capabilities,
-        filetypes = { "html", "css", "scss", "less", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+        filetypes = { "html" },
         on_attach = on_attach,
       },
       pyright = {
@@ -200,6 +200,11 @@ return {
       ts_ls = {
         capabilities = capabilities,
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
+        on_attach = on_attach
+      },
+      ocamllsp = {
+        capabilities = capabilities,
+        filetypes = { "ml" },
         on_attach = on_attach
       },
       prismals = {
