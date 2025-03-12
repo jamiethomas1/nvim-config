@@ -1,5 +1,32 @@
 local utils = require("utils")
 
+--- Function to determine if cursor is inside JSX/TSX part
+--- @return boolean
+local function is_cursor_in_jsx()
+  local ts_utils = require('nvim-treesitter.ts_utils')
+  local current_node = ts_utils.get_node_at_cursor()
+
+  if not current_node then
+    return false
+  end
+
+  while current_node do
+    local node_type = current_node:type()
+
+    if node_type:match("jsx_element") or
+      node_type:match("jsx_fragment") or
+      node_type:match("jsx_opening_element") or
+      node_type:match("jsx_closing_element") or
+      node_type:match("jsx_self_closing_element") then
+      return true
+    end
+
+    current_node = current_node:parent()
+  end
+
+  return false
+end
+
 return {
   "neovim/nvim-lspconfig",
   enabled = not utils.is_vscode,
@@ -29,6 +56,23 @@ return {
       -- if client.name == "ts_ls" then
       --   client.handlers["textDocument/publishDiagnostics"] = function() end
       -- end
+
+      if client.name == "emmet_ls" then
+        local emmet_completion_capabilities = client.server_capabilities.completionProvider
+        vim.api.nvim_create_autocmd("CursorMoved", {
+          buffer = bufnr,
+          callback = function ()
+            local context_in_jsx = is_cursor_in_jsx()
+
+            -- Dynamically enable/disable Emmet completions based on context
+            if context_in_jsx then
+              client.server_capabilities.completionProvider = emmet_completion_capabilities
+            else
+              client.server_capabilities.completionProvider = nil
+            end
+          end
+        })
+      end
 
       -- set keybinds
       opts.desc = "Show LSP references"
@@ -113,8 +157,8 @@ return {
         }
       },
       emmet_ls = {
-        capabilities = capabilities,
-        filetypes = { "html" },
+        capabilities = vim.lsp.protocol.make_client_capabilities(),
+        filetypes = { "html", "javascriptreact", "typescriptreact" },
         on_attach = on_attach,
       },
       pyright = {
