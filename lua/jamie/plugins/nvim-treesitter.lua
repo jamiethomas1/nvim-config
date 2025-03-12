@@ -32,6 +32,7 @@ return {
         "yaml",
         "zig",
         "go",
+        "ocaml",
       },
       sync_install = false,
       highlight = { enable = true },

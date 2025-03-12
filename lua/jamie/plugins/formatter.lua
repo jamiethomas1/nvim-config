@@ -124,6 +124,9 @@ return {
         go = {
           require("formatter.filetypes.go").gofmt,
         },
+        ocaml = {
+          require("formatter.filetypes.ocaml").ocamlformat,
+        },
       }
     })
 

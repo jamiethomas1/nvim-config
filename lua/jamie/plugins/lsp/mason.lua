@@ -52,6 +52,7 @@ return {
         "lemminx",
         "yamlls",
         "ts_ls",
+        "ocamllsp",
         "prismals",
         "zls",
       },
