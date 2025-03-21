@@ -8,7 +8,7 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>ef",
-  "oif err != nil {<CR>}<Esc>Olog.Fatalf(\"\")<Esc>F\"i",
+  "oif err != nil {<CR>}<Esc>Olog.Fatal(err)<Esc>j",
   { buffer = true }
 )
 
