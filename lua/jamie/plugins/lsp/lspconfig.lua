@@ -10,18 +10,18 @@ local function is_cursor_in_jsx()
     return false
   end
 
-  while current_node do
-    local node_type = current_node:type()
+  local node_type = current_node:type()
+  if node_type:match("jsx_") then
+    return true
+  end
 
-    if node_type:match("jsx_element") or
-      node_type:match("jsx_fragment") or
-      node_type:match("jsx_opening_element") or
-      node_type:match("jsx_closing_element") or
-      node_type:match("jsx_self_closing_element") then
+  local parent = current_node:parent()
+  while parent do
+  local parent_type = parent:type()
+    if parent_type:match("jsx_") then
       return true
     end
-
-    current_node = current_node:parent()
+    parent = parent:parent()
   end
 
   return false
