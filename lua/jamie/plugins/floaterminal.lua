@@ -42,13 +42,17 @@ local function create_floating_window(opts)
   return {buf = buf, win = win}
 end
 
+local enter_insert_mode = function()
+    vim.api.nvim_feedkeys("i", "n", false)
+end
+
 local toggle_terminal = function()
   if not vim.api.nvim_win_is_valid(state.floating.win) then
     state.floating = create_floating_window { buf = state.floating.buf }
     if vim.bo[state.floating.buf].buftype ~= "terminal" then
       vim.cmd.term()
     end
-    vim.api.nvim_feedkeys("i", "n", false)
+    enter_insert_mode()
   else
     vim.api.nvim_win_hide(state.floating.win)
   end
