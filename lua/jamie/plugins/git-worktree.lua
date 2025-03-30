@@ -9,7 +9,7 @@ return {
   config = function()
     require("telescope").load_extension("git_worktree")
 
-    vim.keymap.set("n", "<leader>fw", function ()
+    vim.keymap.set("n", "<leader>fg", function ()
       require("telescope").extensions.git_worktree.git_worktree()
     end, { noremap = true, silent = true, desc = "Git worktrees" })
   end,
