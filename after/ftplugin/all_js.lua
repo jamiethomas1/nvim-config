@@ -51,6 +51,7 @@ local function i18n_change_operator(type)
   vim.cmd("normal! i{t(\"")
   vim.cmd("normal! a\")}")
   vim.cmd("normal! F\"a")
+  vim.cmd("startinsert") -- Enter insert mode
   
   -- Restore registers
   vim.fn.setreg('"', old_reg, old_reg_type)
