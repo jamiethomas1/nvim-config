@@ -136,7 +136,17 @@ return {
       tailwindcss = {
         capabilities = capabilities,
         filetypes = { "html", "css", "scss", "less", "javascript", "typescript", "javascriptreact", "typescriptreact" },
-        on_attach = on_attach
+        on_attach = on_attach,
+        settings = {
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                { "cva\\(((?:[^()]|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                { "cx\\(((?:[^()]|\\([^()]*\\))*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" }
+              }
+            }
+          }
+        }
       },
       lua_ls = {
         capabilities = capabilities,
@@ -244,11 +254,6 @@ return {
       ts_ls = {
         capabilities = capabilities,
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
-        on_attach = on_attach
-      },
-      ocamllsp = {
-        capabilities = capabilities,
-        filetypes = { "ml" },
         on_attach = on_attach
       },
       prismals = {
