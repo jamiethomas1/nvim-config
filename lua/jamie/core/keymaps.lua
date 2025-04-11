@@ -37,6 +37,18 @@ vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current bu
 -- formatting
 vim.keymap.set("n", "<leader>gf", ":lua toggle_formatter()<CR>", { noremap = true, silent = true, desc = "Toggle formatter" })
 
+-- mouse toggle
+vim.keymap.set("n", "<leader>mm", function ()
+  local current = vim.o.mouse
+  if current == 'a' then
+    vim.opt.mouse = ""
+    vim.notify('Mouse input disabled', vim.log.levels.INFO)
+  else
+    vim.opt.mouse = 'a'
+    vim.notify('Mouse input enabled', vim.log.levels.INFO)
+  end
+end, { noremap = true, silent = true, desc = "Toggle mouse input" })
+
 -- terminal
 -- vim.keymap.set("n", "<leader>st", function()
 --   vim.cmd.vnew()
