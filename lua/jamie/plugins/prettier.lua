@@ -6,7 +6,7 @@ return {
   config = function()
     require("prettier").setup({
       print_width = 80,
-      tab_width = 2,
+      tab_width = 4,
       single_quote = false,
       trailing_comma = "all",
       config_precedence = "prefer-file",
