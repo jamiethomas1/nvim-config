@@ -123,11 +123,6 @@ return {
         filetypes = { "html" },
         on_attach = on_attach
       },
-      htmx = {
-        capabilities = capabilities,
-        filetypes = { "html" },
-        on_attach = on_attach
-      },
       cssls = {
         capabilities = capabilities,
         filetypes = { "css", "scss", "less" },
@@ -181,16 +176,6 @@ return {
         filetypes = { "sh", "bash" },
         on_attach = on_attach
       },
-      clangd = {
-        capabilities = capabilities,
-        filetypes = { "c", "cpp" },
-        on_attach = on_attach
-      },
-      cmake = {
-        capabilities = capabilities,
-        filetypes = { "cmake" },
-        on_attach = on_attach
-      },
       dockerls = {
         capabilities = capabilities,
         filetypes = { "dockerfile" },
@@ -206,11 +191,6 @@ return {
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
        on_attach = on_attach
        },
-      glsl_analyzer = {
-        capabilities = capabilities,
-        filetypes = { "glsl" },
-        on_attach = on_attach
-      },
       gopls = {
         capabilities = capabilities,
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -231,21 +211,6 @@ return {
         filetypes = { "php" },
         on_attach = on_attach
       },
-      rust_analyzer = {
-        capabilities = capabilities,
-        filetypes = { "rust" },
-        on_attach = on_attach
-      },
-      sqlls = {
-        capabilities = capabilities,
-        filetypes = { "sql" },
-        on_attach = on_attach
-      },
-      lemminx = {
-        capabilities = capabilities,
-        filetypes = { "xml" },
-        on_attach = on_attach
-      },
       yamlls = {
         capabilities = capabilities,
         filetypes = { "yaml", "yml" },
@@ -254,16 +219,6 @@ return {
       ts_ls = {
         capabilities = capabilities,
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
-        on_attach = on_attach
-      },
-      prismals = {
-        capabilities = capabilities,
-        filetypes = { "prisma" },
-        on_attach = on_attach
-      },
-      zls = {
-        capabilities = capabilities,
-        filetypes = { "zig" },
         on_attach = on_attach
       },
     }
