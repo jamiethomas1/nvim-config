@@ -46,7 +46,7 @@ return {
         "gopls",
         "jsonls",
         "marksman",
-        "intelephense",
+        "phpactor",
         "rust_analyzer",
         "sqlls",
         "lemminx",

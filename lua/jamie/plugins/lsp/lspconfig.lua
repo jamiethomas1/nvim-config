@@ -226,7 +226,7 @@ return {
         filetypes = { "markdown" },
         on_attach = on_attach
       },
-      intelephense = {
+      phpactor = {
         capabilities = capabilities,
         filetypes = { "php" },
         on_attach = on_attach
