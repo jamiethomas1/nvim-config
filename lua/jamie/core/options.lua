@@ -43,6 +43,15 @@ vim.opt.mouse = ''
 -- session
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- diagnostics
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = "●",
+    spacing = 4,
+  },
+})
+
+vim.o.winborder = "rounded"
 
 -- custom config
 vim.api.nvim_create_autocmd("TextYankPost", {
