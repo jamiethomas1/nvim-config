@@ -83,4 +83,4 @@ local colorschemes = {
   },
 }
 
-return colorschemes[4]
+return colorschemes[1]
