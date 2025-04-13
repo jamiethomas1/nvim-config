@@ -68,6 +68,19 @@ local colorschemes = {
       vim.cmd([[colorscheme kanagawa-wave]])
     end
   },
+  {
+    "neanias/everforest-nvim",
+    enabled = not utils.is_vscode,
+    priority = 1000, -- load before all other plugins, default for plugins is 50
+    config = function ()
+      require("everforest").setup({
+        transparent_background_level = 2,
+        background = "soft",
+        italics = true,
+      })
+      vim.cmd([[colorscheme everforest]])
+    end
+  },
 }
 
-return colorschemes[1]
+return colorschemes[4]
