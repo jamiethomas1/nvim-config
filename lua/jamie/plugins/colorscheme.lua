@@ -63,7 +63,12 @@ local colorschemes = {
               },
             },
           },
-        }
+        },
+        overrides = function(colors)
+          return {
+            Cursor = { fg = colors.palette.fg, bg = "#56526E" }
+          }
+        end
       })
       vim.cmd([[colorscheme kanagawa-wave]])
     end
@@ -83,4 +88,4 @@ local colorschemes = {
   },
 }
 
-return colorschemes[1]
+return colorschemes[3]
