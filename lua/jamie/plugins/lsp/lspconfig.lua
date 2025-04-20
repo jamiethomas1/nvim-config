@@ -103,10 +103,10 @@ return {
       vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
       opts.desc = "Go to previous diagnostic"
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+      vim.keymap.set("n", "[d", vim.diagnostic.get_prev, opts) -- jump to previous diagnostic in buffer
 
       opts.desc = "Go to next diagnostic"
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+      vim.keymap.set("n", "]d", vim.diagnostic.get_next, opts) -- jump to next diagnostic in buffer
 
       opts.desc = "Show documentation for what is under cursor"
       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
@@ -219,6 +219,22 @@ return {
       ts_ls = {
         capabilities = capabilities,
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html" },
+        on_attach = on_attach
+      },
+      elixirls = {
+        cmd = { "elixir-ls" },
+        capabilities = capabilities,
+        filetypes = { "elixir", "eelixir" },
+        on_attach = on_attach
+      },
+      clangd = {
+        capabilities = capabilities,
+        filetypes = { "c", "cpp" },
+        on_attach = on_attach
+      },
+      cmake = {
+        capabilities = capabilities,
+        filetypes = { "cmake" },
         on_attach = on_attach
       },
     }

@@ -32,6 +32,7 @@ return {
         "yaml",
         "zig",
         "go",
+        "elixir",
       },
       sync_install = false,
       highlight = { enable = true },
