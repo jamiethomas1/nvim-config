@@ -44,6 +44,9 @@ local colorschemes = {
             crust = "#000000",
           },
         },
+        custom_highlights = {
+          Cursor = { fg = "#000000", bg = "#56526E" },
+        }
       })
       vim.cmd([[colorscheme catppuccin-mocha]])
     end
@@ -66,7 +69,7 @@ local colorschemes = {
         },
         overrides = function(colors)
           return {
-            Cursor = { fg = colors.palette.fg, bg = "#56526E" }
+            Cursor = { fg = colors.base, bg = "#56526E" }
           }
         end
       })
@@ -88,4 +91,4 @@ local colorschemes = {
   },
 }
 
-return colorschemes[3]
+return colorschemes[2]
