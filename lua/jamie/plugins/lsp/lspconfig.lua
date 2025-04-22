@@ -32,17 +32,12 @@ return {
   enabled = not utils.is_vscode,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true }
   },
   config = function ()
 
     --- @type table
     local lspconfig = require("lspconfig")
-
-    --- @class Completions
-    --- @field default_capabilities fun()
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local opts = { noremap = true, silent = true }
 
@@ -114,8 +109,6 @@ return {
       opts.desc = "Restart LSP"
       vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
     end
-
-    local capabilities = cmp_nvim_lsp.default_capabilities() -- shorthand for enabling autocompletion - assign to each lsp server config
 
     local servers = {
       html = {
