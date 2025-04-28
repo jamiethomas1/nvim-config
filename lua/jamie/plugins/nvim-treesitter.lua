@@ -33,6 +33,7 @@ return {
         "zig",
         "go",
         "elixir",
+        "c",
       },
       sync_install = false,
       highlight = { enable = true },

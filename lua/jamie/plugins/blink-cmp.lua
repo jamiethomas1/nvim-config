@@ -6,11 +6,13 @@ return {
   ---@module 'blink-cmp'
   ---@type blink.cmp.Config
   opts = {
-    keymap = { 
-      preset = 'super-tab',
+    keymap = {
+      preset = 'enter',
       ['<C-j>'] = { 'select_next' },
       ['<C-k>'] = { 'select_prev' },
-      ['<C-space>'] = { 'show' },
     },
+    signature = {
+      enabled = true,
+    }
   }
 }

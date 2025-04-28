@@ -91,4 +91,4 @@ local colorschemes = {
   },
 }
 
-return colorschemes[2]
+return colorschemes[1]
