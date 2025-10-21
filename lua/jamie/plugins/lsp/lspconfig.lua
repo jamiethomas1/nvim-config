@@ -37,7 +37,7 @@ return {
   config = function ()
 
     --- @type table
-    local lspconfig = require("lspconfig")
+    local lspconfig = vim.lsp.config
 
     local opts = { noremap = true, silent = true }
 
@@ -109,6 +109,8 @@ return {
       opts.desc = "Restart LSP"
       vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
     end
+
+    local capabilities = {}
 
     local servers = {
       html = {
@@ -233,7 +235,7 @@ return {
     }
 
     for server, config in pairs(servers) do
-      lspconfig[server].setup(config)
+      vim.lsp.config[server] = config
     end
   end
 }
