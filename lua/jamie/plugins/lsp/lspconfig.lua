@@ -206,6 +206,11 @@ return {
         filetypes = { "php" },
         on_attach = on_attach
       },
+      rust_analyzer = {
+        capabilities = capabilities,
+        filetypes = { "rust" },
+        on_attach = on_attach
+      },
       yamlls = {
         capabilities = capabilities,
         filetypes = { "yaml", "yml" },
