@@ -127,6 +127,9 @@ return {
         ocaml = {
           require("formatter.filetypes.ocaml").ocamlformat,
         },
+        rust = {
+          require("formatter.filetypes.rust").rustfmt,
+        },
       }
     })
 
