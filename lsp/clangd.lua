@@ -63,7 +63,14 @@ end
 
 ---@type vim.lsp.Config
 return {
-    cmd = { "clangd" },
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=bundled",
+        "--cross-file-rename",
+        "--header-insertion=iwyu",
+    },
     capabilities = {
         offsetEncoding = { "utf-8", "utf-16" },
         textDocument = {
