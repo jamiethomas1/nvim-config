@@ -107,3 +107,5 @@ vim.keymap.set("n", "<leader>bs", "<cmd>ClaudeCodeTreeAdd<cr>", { desc = "Add fi
 -- Diff management
 vim.keymap.set({"n", "t"}, "<leader>ba", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
 vim.keymap.set({"n", "t"}, "<leader>bd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
+
+vim.keymap.set({"n", "t"}, "<leader>gg", "<cmd>Git<cr>", { desc = "Open git" })
