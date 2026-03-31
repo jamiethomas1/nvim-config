@@ -109,3 +109,10 @@ vim.keymap.set({"n", "t"}, "<leader>ba", "<cmd>ClaudeCodeDiffAccept<cr>", { desc
 vim.keymap.set({"n", "t"}, "<leader>bd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
 
 vim.keymap.set({"n", "t"}, "<leader>gg", "<cmd>Git<cr>", { desc = "Open git" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "fugitive",
+  callback = function(ev)
+    vim.keymap.set("n", "q", ":quit<CR>", { buffer = ev.buf, desc = "Close fugitive window" })
+  end,
+})
