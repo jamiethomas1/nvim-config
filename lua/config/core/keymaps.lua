@@ -90,3 +90,20 @@ vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what
 
 opts.desc = "Restart LSP"
 vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+vim.keymap.set({"n", "t"}, "<leader>bc", "<cmd>ClaudeCode<cr>", { desc = "Toggle Claude" })
+vim.keymap.set({"n", "t"}, "<leader>bf", "<cmd>ClaudeCodeFocus<cr>", { desc = "Focus Claude" })
+-- Close Claude Code panel from terminal insert mode without going through normal mode
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n><cmd>ClaudeCode<cr>", { desc = "Toggle Claude panel" })
+
+vim.keymap.set({"n", "t"}, "<leader>br", "<cmd>ClaudeCode --resume<cr>", { desc = "Resume Claude" })
+vim.keymap.set({"n", "t"}, "<leader>bC", "<cmd>ClaudeCode --continue<cr>", { desc = "Continue Claude" })
+vim.keymap.set({"n", "t"}, "<leader>bm", "<cmd>ClaudeCodeSelectModel<cr>", { desc = "Select Claude model" })
+vim.keymap.set({"n", "t"}, "<leader>bb", "<cmd>ClaudeCodeAdd %<cr>", { desc = "Add current buffer" })
+vim.keymap.set("v", "<leader>bs", "<cmd>ClaudeCodeSend<cr>", { desc = "Send to Claude" })
+vim.keymap.set("n", "<leader>bs", "<cmd>ClaudeCodeTreeAdd<cr>", { desc = "Add file" })
+-- Diff management
+vim.keymap.set({"n", "t"}, "<leader>ba", "<cmd>ClaudeCodeDiffAccept<cr>", { desc = "Accept diff" })
+vim.keymap.set({"n", "t"}, "<leader>bd", "<cmd>ClaudeCodeDiffDeny<cr>", { desc = "Deny diff" })
