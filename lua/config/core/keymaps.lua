@@ -116,3 +116,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", ":quit<CR>", { buffer = ev.buf, desc = "Close fugitive window" })
   end,
 })
+
+vim.keymap.set("n", "<leader>yp", function()
+    vim.fn.setreg('+', vim.fn.expand('%:p:.'))
+end, { desc = "Copy file path" })
