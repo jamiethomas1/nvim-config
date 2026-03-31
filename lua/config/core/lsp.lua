@@ -3,4 +3,7 @@ vim.lsp.enable({
     "lua",
     "clangd",
     "cmake",
+    "bash",
+    "go",
+    "tailwindcss",
 })
